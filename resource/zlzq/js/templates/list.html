@@ -1,0 +1,242 @@
+<style type="text/css">
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        cursor: default;
+        top: 1px;
+        height: 20px;
+        width: 20px;
+        background: none repeat scroll 0 0 #fff;
+        border-radius: 10px;
+        -webkit-box-shadow: 0 -1px 1px black inset;
+    }
+
+    .range-bar {
+        height: 2px;
+        background: #ADADB4;
+        position: relative;
+    }
+
+    .range-inner-bar {
+        position: absolute;
+        left: 0;
+        width: 0px;
+        height: 2px;
+        background: #ff6c10;
+        top: 0
+    }
+
+    .disable_text_highlighting {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none; /* Webkit */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE 10  */
+        /* Currently not supported in Opera but will be soon */
+        -o-user-select: none;
+        user-select: none;
+    }
+</style>
+<div class="searchBar">
+    <div class="searchBar-inner">
+        <div class="l-bar">
+						 <span class="l-ct ">
+							 <i class="l-ct-inner"></i>
+						 </span>
+							<span class="c-ct active">
+							 <i class="c-ct-inner"></i>
+						 </span>
+        </div>
+        <div class="r-bar">
+            <i class="search-icon"></i>
+            <input type="text" placeholder="小区名称或地址" class="search-box">
+            <i class="btn">取消</i>
+        </div>
+    </div>
+</div>
+
+<!--<div class="filter-bar">
+    <ul class="filter-list">
+        <li data-key="area"><span>区域<i class="filter-icon selected"></i></span></li>
+        <li data-key="sort"><span>排序<i class="filter-icon"></i></span></li>
+        <li data-key="type"><span>筛选<i class="filter-icon"></i></span></li>
+    </ul>
+</div>
+
+<div class="type-bar-box">
+    <div>
+        <div class="type-bar">
+            <div class="control">
+                <h2>租金<em>(元/月)</em></h2>
+
+                <div style="margin-top: 35px">
+                    <div class="range-bar disable_text_highlighting" id="rangeBar">
+                        <i class="start-tip">不限</i>
+
+                        <div class="range-start-icon"></div>
+                        <div class="range-icon" id="icon"></div>
+                        <div class="range-inner-bar" id="innerBar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="control">
+                <h2>房型</h2>
+                <ul class="house-type">
+                    <li>
+                        <div>1室</div>
+                    </li>
+                    <li>
+                        <div>2室</div>
+                    </li>
+                    <li>
+                        <div>3室</div>
+                    </li>
+                    <li>
+                        <div>4室以上</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="control">
+                <a>重置</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="yes">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sort-bar-box">
+    <div class="sort-bar">
+        <ul class="sort-list">
+            <li class="active">默认排序</li>
+            <li>租金高由高到底</li>
+            <li>租金高由底到高</li>
+            <li>按发布时间排序</li>
+        </ul>
+    </div>
+</div>
+<div class="area-bar-box">
+    <div class="area-bar">
+        <div class="left-column">
+            <ul style="height: auto; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; -webkit-transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                <li data-type="d" class="new">黄埔区</li>
+                <li data-type="l" class="current new">静安区</li>
+                <li data-type="dc" class="">徐汇区</li>
+                <li data-type="dc" class="">长宁区</li>
+                <li data-type="dc" class="">虹口区</li>
+                <li data-type="dc" class="">杨浦区</li>
+                <li data-type="dc" class="">浦东区</li>
+            </ul>
+        </div>
+        <div style="display: table-cell" class="right-column">
+            <div class="right-column-inner">
+                <ul style="height: auto; ">
+                    <li class="selected" data-key="notset" data-index="0"><strong>不限</strong> <i
+                            class="select_input"></i></li>
+                    <li class="" data-key="2" data-index="1"><strong>上海</strong> <i class="select_input"></i></li>
+                    <li class="" data-key="6" data-index="2"><strong>大连</strong> <i class="select_input"></i></li>
+                    <li class="" data-key="28" data-index="3"><strong>成都</strong> <i class="select_input"></i></li>
+                    <li class="" data-key="206" data-index="4"><strong>长沙</strong> <i class="select_input"></i></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="mask"></div>
+
+<ul class="house-list">
+    <%_.each(list, function(v,i){ %>
+    <li data-id="<%=v.id%>">
+        <a>
+            <div class="img">
+                <img src="<%=v.avatar.url%>">
+            </div>
+            <div class="txt">
+                <p class="monthly"><em><%=v.price%></em>&nbsp;元&nbsp;/&nbsp;月</p>
+
+                <p><%=v.title%>&nbsp;&nbsp;|&nbsp;&nbsp;<%=v.area%>m<sup>2</sup></p>
+
+                <p class="addr"><%=v.address%>&nbsp;&nbsp;30号楼</p>
+            </div>
+        </a>
+    </li>
+    <%})%>
+    <!--<li>
+        <div>
+            <div class="img">
+                <img src="./resource/zlzq/images/house.jpg">
+            </div>
+            <div class="txt">
+                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
+                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
+                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <a>
+            <div class="img">
+                <img src="./resource/zlzq/images/house.jpg">
+            </div>
+            <div class="txt">
+                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
+                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
+                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <div class="img">
+                <img src="./resource/zlzq/images/house.jpg">
+            </div>
+            <div class="txt">
+                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
+                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
+                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <div class="img">
+                <img src="./resource/zlzq/images/house.jpg">
+            </div>
+            <div class="txt">
+                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
+                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
+                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a>
+            <div class="img">
+                <img src="./resource/zlzq/images/house.jpg">
+            </div>
+            <div class="txt">
+                <p class="monthly"><em>8500</em>&nbsp;元&nbsp;/&nbsp;月</p>
+                <p>3室2厅2厨2卫&nbsp;&nbsp;|&nbsp;&nbsp;120m</p>
+                <p class="addr">爱建园&nbsp;&nbsp;30号楼</p>
+            </div>
+        </a>
+    </li>-->
+</ul>
+
+<div class="bottom-bar">
+    <ul>
+        <li class="rent">
+            <i class="b-icon r-icon active"></i>
+            <span>租房</span>
+        </li>
+        <!--<li class="order">
+            <i class="b-icon o-icon"></i>
+            <span>约看清单</span>
+        </li>-->
+        <li class="schedule">
+            <i class="b-icon c-icon"></i>
+            <span>看房日程</span>
+        </li>
+        <li class="mine">
+            <i class="b-icon i-icon"></i>
+            <span>我的</span>
+        </li>
+    </ul>
+</div>
