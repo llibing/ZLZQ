@@ -17,8 +17,8 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
             "click .r-bar .btn":"cancel",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
-            //"click .bottom-bar .order":"toOrder",
-            "click .bottom-bar .schedule":"toSchedule"
+            "click .bottom-bar .order":"toOrder",
+            //"click .bottom-bar .schedule":"toSchedule"
         },
         cancel:function(e){
             self.$el.find(".r-bar input").val("");
@@ -38,9 +38,7 @@ define(['BaseView', "cUIInputClear", "Model", "Store",], function (BaseView, cUI
         toSchedule:function(e){
             Lizard.goTo("schedule.html");
         },
-        toOrder:function(e){
-            Lizard.goTo("order.html");
-        },
+
         toList:function(e){
             Lizard.goTo("list.html");
         },

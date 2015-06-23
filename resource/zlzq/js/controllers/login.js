@@ -10,8 +10,8 @@ define(['BaseView', "cUIInputClear", "Model", "Store", "text!TplLogin"], functio
                 "click .mine" :"toUserCenter",
                 "click .bottom-bar .rent":"toRent",
                 "click .bottom-bar .mine":"toPersonal",
-                //"click .bottom-bar .order":"toOrder",
-                "click .bottom-bar .schedule":"toSchedule",
+                "click .bottom-bar .order":"toOrder",
+                //"click .bottom-bar .schedule":"toSchedule",
                 "click #getPwd": "toGetPwd",
                 "click .get-pwd-box .g_btn_s":"getPwd"
             },

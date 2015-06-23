@@ -1,5 +1,5 @@
 define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll","cRange","text!TplList"], function (BaseView, cUIInputClear,cUIImageSlider, Model, Store,cUIScroll,cRange,TplList) {
-    var self,
+    var self,districtsList,
          listModel=Model.ListModel.getInstance();
     var View = BaseView.extend({
         ViewName: 'list',
@@ -24,7 +24,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
             "click .r-bar .btn":"cancel",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
-            //"click .bottom-bar .order":"toOrder",
+            "click .bottom-bar .order":"toOrder",
             "click .bottom-bar .schedule":"toSchedule",
             "click .search-icon":"toSearch"
         },
@@ -188,6 +188,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 type: "get",
                 success: function (data) {
                     callback && callback(data);
+                    districtsList=data.districts;
                 }
             });
 
@@ -226,7 +227,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
                 data:paras,
                 success: function (data) {
                     self.hideLoading();
-                    self.$el.html(_.template(TplList, {list: data.realties}));
+                    self.$el.html(_.template(TplList, {list: data.realties,dlist:districtsList}));
 
                 },
                 error: function (e) {
@@ -237,7 +238,7 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIScroll
         },
         onShow: function () {
             $("#headerview").hide();
-
+            self.getDistricts();
             self.getList();
             self.hideLoading();
 

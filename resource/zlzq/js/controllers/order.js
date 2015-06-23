@@ -9,8 +9,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             "click .order-list .btn":"toSubscribe",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toPersonal",
-            //"click .bottom-bar .order":"toOrder",
-            "click .bottom-bar .schedule":"toSchedule"
+            "click .bottom-bar .order":"toOrder",
+            //"click .bottom-bar .schedule":"toSchedule"
         },
         changeTab: function (e) {
             var target = $(e.currentTarget),

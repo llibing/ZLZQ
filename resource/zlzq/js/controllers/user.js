@@ -13,11 +13,14 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","UIGroupS
             "click .opt-list .favorites":"toFavorite",
             "click .bottom-bar .rent":"toRent",
             "click .bottom-bar .mine":"toMine",
-            //"click .bottom-bar .order":"toOrder",
-            "click .bottom-bar .schedule":"toSchedule"
+            "click .bottom-bar .order":"toOrder",
+            //"click .bottom-bar .schedule":"toSchedule"
         },
         //toMyFavorites:function(e){
         //    Lizard.goTo("list.html?favorite=1");
+        //},
+        //toOrder:function(e){
+        //    Lizard.goTo("order.html");
         //},
         toMyScore:function(e){
             Lizard.goTo("myScore.html");

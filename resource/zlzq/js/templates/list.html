@@ -114,16 +114,26 @@
     <div class="area-bar">
         <div class="left-column">
             <ul style="height: auto; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; -webkit-transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
-                <li data-type="d" class="new">黄埔区</li>
+               &lt;!&ndash; <li data-type="d" class="new">黄埔区</li>
                 <li data-type="l" class="current new">静安区</li>
                 <li data-type="dc" class="">徐汇区</li>
                 <li data-type="dc" class="">长宁区</li>
                 <li data-type="dc" class="">虹口区</li>
                 <li data-type="dc" class="">杨浦区</li>
-                <li data-type="dc" class="">浦东区</li>
+                <li data-type="dc" class="">浦东区</li>&ndash;&gt;
+
+                <%_.each(dlist, function(v,i){ %>
+                <li data-id="<%=v.id%>">
+                    <a>
+                        <p><%=v.title%></p>
+
+                    </a>
+                </li>
+                <%})%>
+
             </ul>
         </div>
-        <div style="display: table-cell" class="right-column">
+        &lt;!&ndash;<div style="display: table-cell" class="right-column">
             <div class="right-column-inner">
                 <ul style="height: auto; ">
                     <li class="selected" data-key="notset" data-index="0"><strong>不限</strong> <i
@@ -135,7 +145,7 @@
 
                 </ul>
             </div>
-        </div>
+        </div>&ndash;&gt;
     </div>
 </div>-->
 
@@ -226,14 +236,14 @@
             <i class="b-icon r-icon active"></i>
             <span>租房</span>
         </li>
-        <!--<li class="order">
+        <li class="order">
             <i class="b-icon o-icon"></i>
             <span>约看清单</span>
-        </li>-->
-        <li class="schedule">
+        </li>
+        <!--<li class="schedule">
             <i class="b-icon c-icon"></i>
             <span>看房日程</span>
-        </li>
+        </li>-->
         <li class="mine">
             <i class="b-icon i-icon"></i>
             <span>我的</span>

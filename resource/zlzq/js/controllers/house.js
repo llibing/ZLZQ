@@ -8,7 +8,8 @@ define(['BaseView', "cUIInputClear","cUIImageSlider" ,"Model", "Store","text!Tpl
             "click .location_icon" :"toLocation",
             "click .search-btn":"toSearch",
             "click .info_list li:first-child":"toComment",
-            "click .house_icon":"toFavourite"
+            "click .house_icon":"toFavourite",
+            //"click .info_btnarea":"toFavourite"
         },
         toFavourite:function(e){
             var isLogin = self.isLogin();

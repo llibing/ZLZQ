@@ -25,6 +25,9 @@ define(['cPageView', 'cGuider', 'cUtility','Store','Model', 'UIAlert'], function
 		toRent:function(e){
 			Lizard.goTo("index.html");
 		},
+		toOrder:function(e){
+			Lizard.goTo("order.html");
+		},
 		toPersonal:function(e){
 			if(this.isLogin()){
 				Lizard.goTo("user.html");
